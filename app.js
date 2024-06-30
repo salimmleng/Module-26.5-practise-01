@@ -61,7 +61,7 @@ const displayCategory =(categories)=>{
         const li = document.createElement("li")
         li.classList.add("dropdown-item")
         li.innerHTML = `
-         <a href="#" onclick="loadProducts('${category}')">${category}</a>
+        <a href="#" onclick="loadProducts('${category.replace(/'/g, "\\'")}')">${category}</a>
         `
         parent.appendChild(li)
     })
