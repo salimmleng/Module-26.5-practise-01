@@ -7,6 +7,17 @@ const loadallProducts = () =>{
     })
 
 }
+
+const displaySingleItem = (id)=>{
+    console.log(id)
+    fetch(`https://fakestoreapi.com/products/${id}`)
+    .then((res) => res.json())
+    .then((data)=>{
+        console.log(data)
+        
+    })
+}
+
 const allProductsDisplay = (items) =>{
     const parent = document.getElementById("product-container")
     parent.innerHTML = "";
@@ -22,6 +33,7 @@ const allProductsDisplay = (items) =>{
                 <h2 class="card-title">Price :$${item.price}</h2>
                 <p class="card-text">Description: ${item.description.slice(0,100)}</p>
                 <p class="card-text">Category: ${item.category}</p>
+                <button onclick="displaySingleItem('${item.id}')">Show Details</button>
             </div>
         `
         parent.appendChild(div)
